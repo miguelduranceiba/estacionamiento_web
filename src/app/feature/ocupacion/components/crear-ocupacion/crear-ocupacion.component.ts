@@ -102,19 +102,19 @@ export class CrearOcupacionComponent implements OnInit {
     }
   }
 
-  private set conductor(value: Conductor) {
+  set conductor(value: Conductor) {
     this.ocupacionForm.controls.conductor.setValue(value);
   }
 
-  private get conductor() {
+  get conductor() {
     return this.ocupacionForm.controls.conductor.value;
   }
 
-  private set vehiculo(value: Vehiculo) {
+  set vehiculo(value: Vehiculo) {
     this.ocupacionForm.controls.vehiculo.setValue(value);
   }
 
-  private get vehiculo() {
+  get vehiculo() {
     return this.ocupacionForm.controls.vehiculo.value;
   }
 }

@@ -68,7 +68,9 @@ describe('CrearVehiculoComponent', () => {
       of(false)
     );
 
-    expect(component.vehiculoForm.valid).toBeFalsy();
+    component.vehiculoForm.controls.placa.setValue('Vehículo test');
+    component.vehiculoForm.controls.tipoVehiculo.setValue(1);
+    expect(component.vehiculoForm.valid).toBeTruthy();
 
     const navigateSpy = spyOn(router, 'navigate');
 

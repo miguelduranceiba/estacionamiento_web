@@ -1,10 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
+import { SharedModule } from '@shared/shared.module';
 import { of } from 'rxjs';
 import { EspacioService } from '../../shared/service/espacio.service';
 import { CrearEspacioComponent } from './crear-espacio.component';
@@ -20,11 +19,9 @@ describe('CrearEspacioComponent', () => {
     TestBed.configureTestingModule({
       declarations: [CrearEspacioComponent],
       imports: [
-        CommonModule,
         HttpClientModule,
         RouterTestingModule,
-        ReactiveFormsModule,
-        FormsModule
+        SharedModule
       ],
       providers: [EspacioService, HttpService],
     })

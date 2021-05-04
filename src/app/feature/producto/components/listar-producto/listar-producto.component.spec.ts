@@ -1,13 +1,13 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
-
-import { ListarProductoComponent } from './listar-producto.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ProductoService } from '../../shared/service/producto.service';
-import { Producto } from '../../shared/model/producto';
+import { of } from 'rxjs';
 import { HttpService } from 'src/app/core/services/http.service';
+import { Producto } from '../../shared/model/producto';
+import { ProductoService } from '../../shared/service/producto.service';
+import { ListarProductoComponent } from './listar-producto.component';
+
 
 describe('ListarProductoComponent', () => {
   let component: ListarProductoComponent;
@@ -40,9 +40,6 @@ describe('ListarProductoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    component.listaProductos.subscribe(resultado => {
-      expect(2).toBe(resultado.length);
-    });
   });
 
 });

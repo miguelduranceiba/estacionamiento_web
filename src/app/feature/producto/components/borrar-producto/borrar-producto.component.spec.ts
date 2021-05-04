@@ -1,10 +1,10 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {
   RouterTestingModule
 } from '@angular/router/testing';
+import { SharedModule } from '@shared/shared.module';
 import { BorrarProductoComponent } from './borrar-producto.component';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 describe('BorrarProductoComponent', () => {
   let component: BorrarProductoComponent;
@@ -12,14 +12,14 @@ describe('BorrarProductoComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BorrarProductoComponent ],
+      declarations: [BorrarProductoComponent],
       imports: [
-        CommonModule,
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule,
+        SharedModule
       ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
