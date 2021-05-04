@@ -43,4 +43,16 @@ describe('ConductorService', () => {
     expect(req.request.method).toBe('POST');
     req.flush(false);
   });
+
+  it('Debería consultar el conductor por identificación', () => {
+    const identificacion = '123';
+    const conductor = new Conductor(1, "", identificacion, "", "", "", "", new Date());
+    service.consultarPorIdentificacion(identificacion).subscribe(response => {
+      expect(response.numeroIdentificacion).toEqual(conductor.numeroIdentificacion);
+    });
+    const req = httpMock.expectOne(`${apiEndpointConductor}/identificacion/${identificacion}`);
+    expect(req.request.method).toBe('GET');
+    req.flush(conductor);
+  });
+
 });

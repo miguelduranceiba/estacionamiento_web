@@ -131,19 +131,19 @@ export class CrearReservaComponent implements OnInit {
     return null;
   }
 
-  private set conductor(value: Conductor) {
+  set conductor(value: Conductor) {
     this.reservaForm.controls.conductor.setValue(value);
   }
 
-  private get conductor() {
+  get conductor() {
     return this.reservaForm.controls.conductor.value;
   }
 
-  private set vehiculo(value: Vehiculo) {
+  set vehiculo(value: Vehiculo) {
     this.reservaForm.controls.vehiculo.setValue(value);
   }
 
-  private get vehiculo() {
+  get vehiculo() {
     return this.reservaForm.controls.vehiculo.value;
   }
 }

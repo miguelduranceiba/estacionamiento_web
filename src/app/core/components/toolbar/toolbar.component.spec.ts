@@ -2,7 +2,7 @@ import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ToolbarComponent } from './toolbar.component';
 
-xdescribe('ToolbarComponent', () => {
+describe('ToolbarComponent', () => {
   let component: ToolbarComponent;
   let fixture: ComponentFixture<ToolbarComponent>;
 

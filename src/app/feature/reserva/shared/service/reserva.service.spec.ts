@@ -44,4 +44,17 @@ describe('ReservaService', () => {
     req.flush(false);
   });
 
+  it('Consultar reserva por vehículo', () => {
+    const idReserva = 1;
+    const dummyReserva = [new Reserva(1, 1, 1, 1, 1, new Date(), new Date(), new Date())];
+    service.consultarReservaPorVehiculo(idReserva).subscribe(response => {
+      expect(response.length).toBe(1);
+      expect(response).toEqual(dummyReserva);
+    });
+
+    const req = httpMock.expectOne(`${apiEndpointReserva}/vehiculo/${idReserva}`);
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyReserva);
+  });
+
 });

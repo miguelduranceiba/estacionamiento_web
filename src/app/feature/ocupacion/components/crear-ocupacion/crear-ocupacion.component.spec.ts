@@ -9,7 +9,8 @@ import { OcupacionService } from '@ocupacion/shared/service/ocupacion.service';
 import { Reserva } from '@reserva/shared/model/reserva';
 import { ReservaService } from '@reserva/shared/service/reserva.service';
 import { VehiculoService } from '@vehiculo/shared/service/vehiculo.service';
-import { of } from 'rxjs';
+import { Vehiculo } from '@vehiculo/shared/vehiculo';
+import { of, throwError } from 'rxjs';
 import { CrearOcupacionComponent } from './crear-ocupacion.component';
 
 
@@ -20,6 +21,7 @@ describe('CrearOcupacionComponent', () => {
   let router: Router;
   let reservaService: ReservaService;
   let conductorService: ConductorService;
+  let vehiculoService: VehiculoService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -45,6 +47,7 @@ describe('CrearOcupacionComponent', () => {
     ocupacionService = TestBed.inject(OcupacionService);
     reservaService = TestBed.inject(ReservaService);
     conductorService = TestBed.inject(ConductorService);
+    vehiculoService = TestBed.inject(VehiculoService);
     router = TestBed.inject(Router);
     router.initialNavigation();
 
@@ -132,5 +135,47 @@ describe('CrearOcupacionComponent', () => {
     tick();
     expect(component.conductor.id).toBe(id);
   }));
+
+  it('El conductor no se encontró y debe enviarlo a crear', fakeAsync(() => {
+    spyOn(conductorService, 'consultarPorIdentificacion').and.callFake(() => {
+      return throwError({ status: 404 });
+    });
+
+    const navigateSpy = spyOn(router, 'navigate');
+
+    component.buscarConductor();
+    tick();
+    expect(navigateSpy).toHaveBeenCalledWith(['./conductor/crear']);
+  }));
+
+  it('Buscar vehículo y es encontrado', fakeAsync(() => {
+    const id = 1;
+    const vehiculo = new Vehiculo(id, '', '', new Date());
+    spyOn(vehiculoService, 'consultarPorPlaca').and.returnValue(
+      of(vehiculo)
+    );
+
+    component.buscarVehiculo();
+    tick();
+    expect(component.vehiculo.id).toBe(id);
+  }));
+
+  it('El vehículo no se encontró y debe enviarlo a crear', fakeAsync(() => {
+    spyOn(vehiculoService, 'consultarPorPlaca').and.callFake(() => {
+      return throwError({ status: 404 });
+    });
+
+    const navigateSpy = spyOn(router, 'navigate');
+
+    component.buscarVehiculo();
+    tick();
+    expect(navigateSpy).toHaveBeenCalledWith(['./vehiculo/crear']);
+  }));
+
+  it('Ir al visor del parqueadreo', () => {
+    const navigateSpy = spyOn(router, 'navigate');
+    component.atras();
+    expect(navigateSpy).toHaveBeenCalledWith(['parqueadero/visor']);
+  });
 
 });
