@@ -78,7 +78,9 @@ describe('CrearEspacioComponent', () => {
       of(false)
     );
 
-    expect(component.espacioForm.valid).toBeFalsy();
+    component.espacioForm.controls.nombre.setValue('Espacio test');
+    component.espacioForm.controls.estado.setValue(1);
+    expect(component.espacioForm.valid).toBeTruthy();
 
     const navigateSpy = spyOn(router, 'navigate');
 
