@@ -1,0 +1,52 @@
+<div class="card">
+    <div class="card-title">
+        Crear Espacio
+    </div>
+    <div class="card-body">
+        <form [formGroup]="ocupacionForm">
+            <div class="row">
+                <div>
+                    <label>Conductor</label>
+                </div>
+                <div>
+                    <input type="text" formControlName="identificacionConductor">
+                    <button [disabled]="!ocupacionForm.controls.identificacionConductor.valid"
+                        (click)="buscarConductor()" class="btn btn-info">Buscar</button>
+                    {{nombreConductor}}
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Vehículo</label>
+                </div>
+                <div>
+                    <input type="text" formControlName="placa">
+                    <button [disabled]="!ocupacionForm.controls.placa.valid"
+                        (click)="buscarVehiculo()" class="btn btn-info">Buscar</button>
+                    {{nombreVehiculo}}
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Reserva</label>
+                </div>
+                <div>
+                    <select formControlName="idReserva">
+                        <option [value]="null">Sin Reserva</option>
+                        <option *ngFor="let item of listaReserva | async" [value]="item.id">{{item.fechaInicio | date: 'yyyy-MM-dd hh:mm:ss'}} - {{item.fechaFin | date:'yyyy-MM-dd hh:mm:ss'}}</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="offset-4 col-2">
+                    <button class="btn btn-secondary" (click)="atras()">Atras</button>
+                </div>
+                <div class="col-2">
+                    <button [disabled]="!ocupacionForm.valid" type="button" (click)="crear()"
+                        class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

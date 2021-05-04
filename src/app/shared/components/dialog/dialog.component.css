@@ -1,0 +1,7 @@
+.dialog{
+    display: none !important;
+}
+
+.show{
+    display: block !important
+}

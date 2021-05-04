@@ -1,0 +1,22 @@
+.espacio{
+    border-radius: 10px;
+    border:1px solid black;
+    width: 100%;
+    height: 80px;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.disponible{
+    background-color: green;
+}
+
+.ocupado{
+    background-color: red;
+}

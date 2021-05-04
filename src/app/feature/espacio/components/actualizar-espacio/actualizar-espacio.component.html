@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-title">
+        Actualizar Espacio
+    </div>
+    <div class="card-body">
+        <form [formGroup]="espacioForm">
+
+            <div>
+                <label>Nombre</label>
+                <input id="nombre" formControlName="nombre">
+            </div>
+            <div>
+                <label>Estado</label>
+                <select formControlName="estado">
+                    <option *ngFor="let item of listaEstado" [value]="item.id">{{item.nombre}}</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="offset-5 col-1">
+                    <a [routerLink]="['../../listar']" routerLinkActive="active">Atrás</a>
+                </div>
+                <div class="col-1">
+                    <button [disabled]="!espacioForm.valid" type="button" (click)="actualizar()">Aceptar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

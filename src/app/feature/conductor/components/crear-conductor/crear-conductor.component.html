@@ -1,0 +1,43 @@
+<div class="card">
+    <div class="card-title">
+        Crear Conductor
+    </div>
+    <div class="card-body">
+        <form [formGroup]="conductorForm">
+            <div>
+                <label>Tipo Identificación</label>
+                <input id="tipoIdentificacion" formControlName="tipoIdentificacion">
+            </div>
+            <div>
+                <label>Número Identificación</label>
+                <input id="numeroIdentificacion" formControlName="numeroIdentificacion">
+            </div>
+            <div>
+                <label>Primer Nombre</label>
+                <input id="primerNombre" formControlName="primerNombre">
+            </div>
+            <div>
+                <label>Segundo Nombre</label>
+                <input id="segundoNombre" formControlName="segundoNombre">
+            </div>
+            <div>
+                <label>Primer Apellido</label>
+                <input id="primerApellido" formControlName="primerApellido">
+            </div>
+            <div>
+                <label>Segundo Apellido</label>
+                <input id="segundoApellido" formControlName="segundoApellido">
+            </div>
+            <div class="row">
+                <div class="offset-5 col-1">
+                    <a [routerLink]="['/parqueadero/visor']" routerLinkActive="active"
+                        class="btn btn-secondary">Atrás</a>
+                </div>
+                <div class="col-1">
+                    <button [disabled]="!conductorForm.valid" type="button" (click)="crear()"
+                        class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

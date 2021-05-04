@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-title">
+        Crear Vehículo
+    </div>
+    <div class="card-body">
+        <form [formGroup]="vehiculoForm">
+
+            <div>
+                <label>Placa</label>
+                <input id="placa" formControlName="placa">
+            </div>
+            <div>
+                <label>Tipo Vehículo</label>
+                <select formControlName="tipoVehiculo">
+                    <option *ngFor="let item of listaTipoVehiculo" [value]="item.id">{{item.nombre}}</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="offset-5 col-1">
+                    <a [routerLink]="['/parqueadero/visor']" routerLinkActive="active"
+                        class="btn btn-secondary">Atrás</a>
+                </div>
+                <div class="col-1">
+                    <button [disabled]="!vehiculoForm.valid" type="button" (click)="crear()"
+                        class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="card">
+    <div class="card-title">
+        Crear Reserva
+    </div>
+    <div class="card-body">
+        <form [formGroup]="reservaForm">
+            <div class="row">
+                <div>
+                    <label>Espacio</label>
+                </div>
+                <div>
+                    <select formControlName="idEspacio">
+                        <option *ngFor="let item of listaEspacio | async" [value]="item.id">{{item.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Conductor</label>
+                </div>
+                <div>
+                    <input validar type="text" formControlName="identificacionConductor">
+                    <button [disabled]="!reservaForm.controls.identificacionConductor.valid" (click)="buscarConductor()"
+                        class="btn btn-info">Buscar</button>
+                    {{nombreConductor}}
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Vehículo</label>
+                </div>
+                <div>
+                    <input validar type="text" formControlName="placa">
+                    <button [disabled]="!reservaForm.controls.placa.valid" (click)="buscarVehiculo()"
+                        class="btn btn-info">Buscar</button>
+                    {{nombreVehiculo}}
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Fecha Inicio</label>
+                </div>
+                <div>
+                    <input validar type="text" id="fechaInicio" name="fechaInicio" formControlName="fechaInicio"
+                        placeholder="1900-01-01 00:00:00" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <label>Fecha Fin</label>
+                </div>
+                <div>
+                    <input validar type="text" id="fechaFin" name="fechaFin" formControlName="fechaFin"
+                        placeholder="1900-01-01 00:00:00" class="form-control">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="offset-4 col-2">
+                    <button class="btn btn-secondary" (click)="atras()">Atras</button>
+                </div>
+                <div class="col-2">
+                    <button [disabled]="!reservaForm.valid" type="button" (click)="crear()"
+                        class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <div *ngIf="!reservaForm.valid" >
+                <div *ngIf="reservaForm.errors?.fechaInicioMayorAFechaFin" class="error">
+                    <strong>Fecha Inicio</strong> no puede ser mayor a fecha fin
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
