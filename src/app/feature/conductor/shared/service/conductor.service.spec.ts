@@ -46,7 +46,7 @@ describe('ConductorService', () => {
 
   it('Debería consultar el conductor por identificación', () => {
     const identificacion = '123';
-    const conductor = new Conductor(1, "", identificacion, "", "", "", "", new Date());
+    const conductor = new Conductor(1, '', identificacion, '', '', '', '', new Date());
     service.consultarPorIdentificacion(identificacion).subscribe(response => {
       expect(response.numeroIdentificacion).toEqual(conductor.numeroIdentificacion);
     });

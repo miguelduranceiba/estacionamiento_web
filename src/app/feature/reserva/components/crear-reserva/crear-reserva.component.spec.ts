@@ -147,7 +147,7 @@ describe('CrearReservaComponent', () => {
     });
 
     const navigateSpy = spyOn(router, 'navigate');
-    
+
     component.buscarVehiculo();
     tick();
     expect(navigateSpy).toHaveBeenCalledWith(['./vehiculo/crear']);

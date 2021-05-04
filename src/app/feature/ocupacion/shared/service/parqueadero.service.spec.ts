@@ -19,6 +19,4 @@ describe('ParqueaderoService', () => {
     expect(service).toBeTruthy();
   });
 
-  
-
 });
