@@ -42,7 +42,7 @@ describe('CrearEspacioComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Formulario es invalido cuando esta vacio', () => {
+  it('Formulario es inválido cuando esta vacío', () => {
     expect(component.espacioForm.valid).toBeFalsy();
   });
 

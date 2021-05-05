@@ -5,7 +5,7 @@
         Espacio
       </div>
       <div class="col-2">
-        <a [routerLink]="['../crear']" routerLinkActive="active">Crear</a>
+        <a id="crear" [routerLink]="['../crear']" routerLinkActive="active">Crear</a>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
       <body id="lista_espacios">
         <tr *ngFor="let item of listaEspacio | async">
           <td>
-            <a [routerLink]="['../actualizar', item.id]" routerLinkActive="active">Editar</a>
+            <a class="editar" [routerLink]="['../actualizar', item.id]" routerLinkActive="active">Editar</a>
           </td>
           <td>
             {{item.id}}
@@ -37,7 +37,7 @@
             {{item.nombre}}
           </td>
           <td>
-            <a href="espacio/listar" (click)="eliminar(item.id)">Eliminar</a>
+            <a class="eliminar" href="espacio/listar" (click)="eliminar(item.id)">Eliminar</a>
           </td>
         </tr>
       </body>

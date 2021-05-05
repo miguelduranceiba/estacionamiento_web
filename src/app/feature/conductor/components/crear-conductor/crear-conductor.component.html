@@ -30,11 +30,11 @@
             </div>
             <div class="row">
                 <div class="offset-5 col-1">
-                    <a [routerLink]="['/parqueadero/visor']" routerLinkActive="active"
+                    <a id="atras" [routerLink]="['/parqueadero/visor']" routerLinkActive="active"
                         class="btn btn-secondary">Atrás</a>
                 </div>
                 <div class="col-1">
-                    <button [disabled]="!conductorForm.valid" type="button" (click)="crear()"
+                    <button id="crear" [disabled]="!conductorForm.valid" type="button" (click)="crear()"
                         class="btn btn-primary">Aceptar</button>
                 </div>
             </div>

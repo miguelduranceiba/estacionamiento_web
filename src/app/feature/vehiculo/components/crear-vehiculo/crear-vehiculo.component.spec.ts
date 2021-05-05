@@ -35,7 +35,7 @@ describe('CrearVehiculoComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Formulario es invalido cuando esta vácio', () => {
+  it('Formulario es inválido cuando esta vacío', () => {
     expect(component.vehiculoForm.valid).toBeFalsy();
   });
 

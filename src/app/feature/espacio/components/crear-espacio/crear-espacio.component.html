@@ -11,16 +11,16 @@
             </div>
             <div>
                 <label>Estado</label>
-                <select formControlName="estado">
+                <select id="estado" formControlName="estado">
                     <option *ngFor="let item of listaEstado" [value]="item.id">{{item.nombre}}</option>
                 </select>
             </div>
             <div class="row">
                 <div class="offset-5 col-1">
-                    <a [routerLink]="['../listar']" routerLinkActive="active" class="btn btn-secondary">Atrás</a>
+                    <a id="atras" [routerLink]="['../listar']" routerLinkActive="active" class="btn btn-secondary">Atrás</a>
                 </div>
                 <div class="col-1">
-                    <button [disabled]="!espacioForm.valid" type="button" (click)="crear()" class="btn btn-primary">Aceptar</button>
+                    <button id="crear" [disabled]="!espacioForm.valid" type="button" (click)="crear()" class="btn btn-primary">Aceptar</button>
                 </div>
             </div>
         </form>

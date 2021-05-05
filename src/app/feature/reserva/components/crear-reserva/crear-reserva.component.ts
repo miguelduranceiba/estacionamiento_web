@@ -51,7 +51,6 @@ export class CrearReservaComponent implements OnInit {
     this.serviceConductor.consultarPorIdentificacion(this.reservaForm.controls.identificacionConductor.value).subscribe(response => {
       this.conductor = response;
     }, (error) => {
-      console.log(error);
       if (error.status === 404) {
         this.router.navigate(['./conductor/crear']);
       }
@@ -111,7 +110,6 @@ export class CrearReservaComponent implements OnInit {
 
       } catch (e) {
       }
-      console.log(fecha);
       if (!fecha || fecha !== valor) {
         return { formatoFechaInvalido: true };
       }

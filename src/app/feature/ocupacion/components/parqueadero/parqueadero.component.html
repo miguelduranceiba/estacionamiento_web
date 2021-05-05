@@ -1,8 +1,7 @@
-<div class="row">
-    <div *ngFor="let item of listaEspacio | async" class="col-2">
-        <div [ngClass]="{'disponible':item.disponible, 'espacio':true, 'ocupado':item.ocupado, 'align-middle':true}"
-            (click)="acccionOcupacion(item)">
-            {{item.nombre}}
-        </div>
+<div id="parqueadero" class="row">
+    <div *ngFor="let item of listaEspacio | async" class="col-2"
+        [ngClass]="{'disponible':item.disponible, 'espacio':true, 'ocupado':item.ocupado, 'align-middle':true}"
+        (click)="acccionOcupacion(item)">
+        {{item.nombre}}
     </div>
 </div>

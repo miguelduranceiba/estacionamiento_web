@@ -55,7 +55,6 @@ export class CrearOcupacionComponent implements OnInit {
     this.serviceConductor.consultarPorIdentificacion(this.ocupacionForm.controls.identificacionConductor.value).subscribe(response => {
       this.conductor = response;
     }, (error) => {
-      console.log(error);
       if (error.status === 404) {
         this.router.navigate(['./conductor/crear']);
       }

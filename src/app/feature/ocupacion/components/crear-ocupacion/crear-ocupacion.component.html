@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-title">
-        Crear Espacio
+        Crear Ocupacion
     </div>
     <div class="card-body">
         <form [formGroup]="ocupacionForm">
@@ -9,10 +9,10 @@
                     <label>Conductor</label>
                 </div>
                 <div>
-                    <input type="text" formControlName="identificacionConductor">
-                    <button [disabled]="!ocupacionForm.controls.identificacionConductor.valid"
+                    <input id="inputIdentificacion" type="text" formControlName="identificacionConductor">
+                    <button id="btnIdentificacion" [disabled]="!ocupacionForm.controls.identificacionConductor.valid"
                         (click)="buscarConductor()" class="btn btn-info">Buscar</button>
-                    {{nombreConductor}}
+                    <label id="textoConductor">{{nombreConductor}}</label>
                 </div>
             </div>
             <div class="row">
@@ -20,10 +20,10 @@
                     <label>Vehículo</label>
                 </div>
                 <div>
-                    <input type="text" formControlName="placa">
-                    <button [disabled]="!ocupacionForm.controls.placa.valid"
-                        (click)="buscarVehiculo()" class="btn btn-info">Buscar</button>
-                    {{nombreVehiculo}}
+                    <input id="inputVehiculo" type="text" formControlName="placa">
+                    <button id="btnVehiculo" [disabled]="!ocupacionForm.controls.placa.valid" (click)="buscarVehiculo()"
+                        class="btn btn-info">Buscar</button>
+                    <label id="textoVehiculo">{{nombreVehiculo}}</label>
                 </div>
             </div>
             <div class="row">
@@ -31,19 +31,20 @@
                     <label>Reserva</label>
                 </div>
                 <div>
-                    <select formControlName="idReserva">
+                    <select id="selectReserva" formControlName="idReserva">
                         <option [value]="null">Sin Reserva</option>
-                        <option *ngFor="let item of listaReserva | async" [value]="item.id">{{item.fechaInicio | date: 'yyyy-MM-dd hh:mm:ss'}} - {{item.fechaFin | date:'yyyy-MM-dd hh:mm:ss'}}</option>
+                        <option *ngFor="let item of listaReserva | async" [value]="item.id">{{item.fechaInicio | date:
+                            'yyyy-MM-dd hh:mm:ss'}} - {{item.fechaFin | date:'yyyy-MM-dd hh:mm:ss'}}</option>
                     </select>
                 </div>
             </div>
             <br />
             <div class="row">
                 <div class="offset-4 col-2">
-                    <button class="btn btn-secondary" (click)="atras()">Atras</button>
+                    <button id="atras" class="btn btn-secondary" (click)="atras()">Atras</button>
                 </div>
                 <div class="col-2">
-                    <button [disabled]="!ocupacionForm.valid" type="button" (click)="crear()"
+                    <button id="crear" [disabled]="!ocupacionForm.valid" type="button" (click)="crear()"
                         class="btn btn-primary">Aceptar</button>
                 </div>
             </div>

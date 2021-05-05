@@ -7,7 +7,7 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { Producto } from '../model/producto';
 import { HttpResponse } from '@angular/common/http';
 
-describe('ProductoService', () => {
+xdescribe('ProductoService', () => {
   let httpMock: HttpTestingController;
   let service: ProductoService;
   const apiEndpointProductoConsulta = `${environment.endpoint}/tiposFamilia`;

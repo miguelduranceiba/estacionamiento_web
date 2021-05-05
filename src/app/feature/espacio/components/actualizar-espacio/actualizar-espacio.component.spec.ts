@@ -15,8 +15,8 @@ describe('ActualizarEspacioComponent', () => {
   let espacioService: EspacioService;
   let router: Router;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [ActualizarEspacioComponent],
       imports: [
         CommonModule,
@@ -55,11 +55,11 @@ describe('ActualizarEspacioComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('formulario es invalido cuando esta vacio', () => {
+  it('formulario es inválido cuando esta vacío', () => {
     expect(component.espacioForm.valid).toBeFalsy();
   });
 
-  it('Formulario está diligenciado exitosabmente', () => {
+  it('Formulario está diligenciado exitosamente', () => {
     expect(component.espacioForm.valid).toBeFalsy();
     component.espacioForm.controls.nombre.setValue('Espacio test');
     component.espacioForm.controls.estado.setValue(1);

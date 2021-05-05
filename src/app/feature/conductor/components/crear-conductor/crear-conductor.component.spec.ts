@@ -41,7 +41,7 @@ describe('CrearConductorComponent', () => {
     expect(component.conductorForm.valid).toBeFalsy();
   });
 
-  it('Formulario está diligenciado exitosabmente', () => {
+  it('Formulario está diligenciado exitosamente', () => {
     expect(component.conductorForm.valid).toBeFalsy();
     component.conductorForm.controls.tipoIdentificacion.setValue('CC');
     component.conductorForm.controls.numeroIdentificacion.setValue('1234');
