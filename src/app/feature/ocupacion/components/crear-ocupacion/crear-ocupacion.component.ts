@@ -21,6 +21,7 @@ export class CrearOcupacionComponent implements OnInit {
   ocupacionForm: FormGroup;
   idEspacio: number = null;
   listaReserva: Observable<Reserva[]>;
+  private ERROR_404 = 404;
 
   constructor(
     protected serviceConductor: ConductorService, private route: ActivatedRoute, protected router: Router,
@@ -55,7 +56,7 @@ export class CrearOcupacionComponent implements OnInit {
     this.serviceConductor.consultarPorIdentificacion(this.ocupacionForm.controls.identificacionConductor.value).subscribe(response => {
       this.conductor = response;
     }, (error) => {
-      if (error.status === 404) {
+      if (error.status === this.ERROR_404) {
         this.router.navigate(['./conductor/crear']);
       }
     });
@@ -67,7 +68,7 @@ export class CrearOcupacionComponent implements OnInit {
       this.vehiculo = response;
       this.consultarReservas(this.vehiculo.id);
     }, (error) => {
-      if (error.status === 404) {
+      if (error.status === this.ERROR_404) {
         this.router.navigate(['./vehiculo/crear']);
       }
     });

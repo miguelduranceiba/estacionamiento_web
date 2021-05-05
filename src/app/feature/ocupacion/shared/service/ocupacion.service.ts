@@ -15,7 +15,7 @@ export class OcupacionService {
       this.http.optsName('Crear Ocupación'));
   }
 
-  pagar(idOcupacion: any) {
+  pagar(idOcupacion: number) {
     return this.http.doPost<Ocupacion, boolean>(`${this.apiOcupacion}/pagar/${idOcupacion}`, null,
       this.http.optsName('Pagar Ocupación'));
   }
