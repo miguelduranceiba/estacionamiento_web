@@ -1,4 +1,4 @@
-import { by, element } from "protractor";
+import { by, element } from 'protractor';
 
 export class CrearVehiculo {
     private inputPlaca = element(by.id('placa'));

@@ -1,4 +1,4 @@
-import { by, element } from "protractor";
+import { by, element } from 'protractor';
 
 export class CrearConductor {
     private inputTipoIdentificacion = element(by.id('tipoIdentificacion'));

@@ -1,12 +1,12 @@
-import { browser } from "protractor";
-import { AppPage } from "../app.po";
-import { CrearConductor } from "../page/conductor/crear-conductor.po";
-import { CrearEspacio } from "../page/espacio/crear-espacio.po";
-import { ListarEspacio } from "../page/espacio/listar-espacio.po";
-import { NavbarPage } from "../page/navbar/navbar.po";
-import { CrearOcupacion } from "../page/ocupacion/crear-ocupacion.po";
-import { ListarOcupacion } from "../page/ocupacion/listar-ocupacion.po";
-import { CrearVehiculo } from "../page/vehiculo/crear-vehiculo.po";
+import { browser } from 'protractor';
+import { AppPage } from '../app.po';
+import { CrearConductor } from '../page/conductor/crear-conductor.po';
+import { CrearEspacio } from '../page/espacio/crear-espacio.po';
+import { ListarEspacio } from '../page/espacio/listar-espacio.po';
+import { NavbarPage } from '../page/navbar/navbar.po';
+import { CrearOcupacion } from '../page/ocupacion/crear-ocupacion.po';
+import { ListarOcupacion } from '../page/ocupacion/listar-ocupacion.po';
+import { CrearVehiculo } from '../page/vehiculo/crear-vehiculo.po';
 
 describe('workspace-project Ocupación', () => {
     let page: AppPage;
@@ -30,7 +30,7 @@ describe('workspace-project Ocupación', () => {
     });
 
     it('Mirar disponibilidad', async () => {
-        const NOMBRE = "ESPACIO 1";
+        const NOMBRE = 'ESPACIO 1';
 
         page.navigateTo();
         navBar.clickBotonEspacio();
@@ -48,10 +48,10 @@ describe('workspace-project Ocupación', () => {
     });
 
     it('Crear conductor', async () => {
-        const TIPO = "CC";
-        const IDENTIFICACION = "1234";
-        const PRIMERNOMBRE = "CEIBA";
-        const PRIMERAPELLIDO = "DOS";
+        const TIPO = 'CC';
+        const IDENTIFICACION = '1234';
+        const PRIMERNOMBRE = 'CEIBA';
+        const PRIMERAPELLIDO = 'DOS';
 
         page.navigateTo();
         navBar.clickBotonParqueadero();
@@ -78,7 +78,7 @@ describe('workspace-project Ocupación', () => {
     });
 
     it('Crear vehículo', () => {
-        const PLACA = "PLACA1";
+        const PLACA = 'PLACA1';
 
         page.navigateTo();
         navBar.clickBotonParqueadero();
@@ -100,8 +100,8 @@ describe('workspace-project Ocupación', () => {
     });
 
     it('Crear ocupación', async () => {
-        const PLACA = "PLACA1";
-        const IDENTIFICACION = "1234";
+        const PLACA = 'PLACA1';
+        const IDENTIFICACION = '1234';
 
         page.navigateTo();
         navBar.clickBotonParqueadero();
@@ -112,7 +112,7 @@ describe('workspace-project Ocupación', () => {
 
         crearOcupacion.setValueVehiculo(PLACA);
         crearOcupacion.clickBotonVehiculo();
-        
+
         crearOcupacion.clickCrear();
         browser.sleep(500);
         page.navigateTo();

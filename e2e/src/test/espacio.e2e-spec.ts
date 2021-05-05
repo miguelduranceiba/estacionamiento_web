@@ -1,8 +1,8 @@
-import { AppPage } from "../app.po";
-import { ActualizarEspacio } from "../page/espacio/actualizar-espacio.po";
-import { CrearEspacio } from "../page/espacio/crear-espacio.po";
-import { ListarEspacio } from "../page/espacio/listar-espacio.po";
-import { NavbarPage } from "../page/navbar/navbar.po";
+import { AppPage } from '../app.po';
+import { ActualizarEspacio } from '../page/espacio/actualizar-espacio.po';
+import { CrearEspacio } from '../page/espacio/crear-espacio.po';
+import { ListarEspacio } from '../page/espacio/listar-espacio.po';
+import { NavbarPage } from '../page/navbar/navbar.po';
 
 describe('workspace-project Espacio', () => {
     let page: AppPage;
@@ -21,7 +21,7 @@ describe('workspace-project Espacio', () => {
 
     it('Crear un espacio', async () => {
         const cantidad = await listarEspacio.cantidadEspacio() + 1;
-        const NOMBRE = "ESPACIO 1";
+        const NOMBRE = 'ESPACIO 1';
 
         page.navigateTo();
         navBar.clickBotonEspacio();
@@ -36,7 +36,7 @@ describe('workspace-project Espacio', () => {
     });
 
     it('Actualizar un espacio', async () => {
-        const NOMBRE = "ESPACIO EDITADO";
+        const NOMBRE = 'ESPACIO EDITADO';
         const POSICION = 0;
 
         page.navigateTo();
